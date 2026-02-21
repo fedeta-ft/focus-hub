@@ -11,7 +11,7 @@ const BlackHoleInput = () => {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="Volcá tu mente acá... (Brain Dump)"
+          placeholder="Dame..."
           className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground text-sm font-light outline-none"
         />
         <button className="w-9 h-9 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
