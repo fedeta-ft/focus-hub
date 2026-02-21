@@ -1,52 +1,51 @@
 
 
-# J.A.R.V.I.S. Executive Dashboard
+# Surgical UI Update: Dashboard Widgets
 
-A premium glassmorphism dashboard designed for an executive CEO with ADHD — maximum clarity, zero clutter.
+## Changes Summary
 
-## Design System
-- **Theme**: Dark mode only with deep dark backgrounds (#0a0a0f range)
-- **Style**: Glassmorphism — frosted-glass panels with `backdrop-blur`, subtle white/gray borders at ~10% opacity
-- **Accent**: Neon orange (#FF6B2C range) used sparingly for active states and CTAs
-- **Typography**: Inter font, clean hierarchy
-- **Animations**: Smooth hover transitions, subtle glows on interactive elements
+### 1. Center Column -- Title & Input
+- **Index.tsx**: Change `"El Agujero Negro"` to `"Dashboard"`, remove the subtitle `<p>` tag entirely
+- **BlackHoleInput.tsx**: Change placeholder from `"Volca tu mente aca..."` to `"Dame..."`
 
-## Layout — 3-Column Dashboard
+### 2. Right Column -- Widget Restructuring
 
-### Left Column: Sidebar Navigation
-- Fixed, narrow sidebar with frosted-glass background
-- User avatar at top with name/role
-- Navigation items with Lucide icons:
-  - **Home** (active — neon orange accent indicator)
-  - **POLSA**
-  - **DS**
-  - **Hornero**
-  - **Smart Foods**
-  - **Configuración** (settings, at bottom)
-- Subtle hover effects on menu items
+**MisionActual.tsx** (rename label only):
+- Change header text from `"Mision Actual + Timebox"` to `"Current Task + Timebox"`
+- Keep all timer/completed logic as-is
 
-### Center Column: El Agujero Negro & J.A.R.V.I.S.
-- **"El Agujero Negro" Input Bar** — prominent glassmorphism input at the top with:
-  - Placeholder: "Volcá tu mente acá... (Brain Dump)"
-  - Glowing neon-orange send button
-  - Microphone icon for voice input
-- **J.A.R.V.I.S. Chat Interface** — translucent chat area below with:
-  - Frosted-glass message bubbles
-  - Sample conversation showing "J.A.R.V.I.S. Insight" responses
-  - Clean, minimal chat history layout
-  - All static/mock data (no backend)
+**SmartCalendarGrid.tsx** (full redesign -- "Floating Timeline"):
+- Remove the grid/blocks layout entirely
+- Replace with a minimal vertical list: each event is a glowing colored dot, followed by time and title text
+- No solid background blocks, no grid lines -- just clean floating entries with whitespace
 
-### Right Column: Focus & Smart Widgets
+**New file: CriticalPath.tsx** ("Impacto Futuro"):
+- Compact list widget with `AlertTriangle` icon
+- Items like "Draft Inversores (Due: Friday)" and "Aprobar Presupuesto (Unblocks: Chan)"
+- Subtle warning glow on the card
 
-- **Widget 1 — "Misión Actual"**: Single-task focus card. One large prominent task displayed ("Terminar PPT Smart Foods"), a big satisfying "Completado" button with neon-orange glow, and a smaller "Desglosar" button. No lists — just one task.
+**EnEspera.tsx**: No changes needed
 
-- **Widget 2 — "Smart Agenda"**: Visual timeline of the day showing 3-4 upcoming events with times and color-coded indicators. Clean vertical timeline layout.
+**New file: SmartMail.tsx**:
+- Two glass metric buttons/cards side by side
+- "3 Urgentes" with `AlertCircle` warning icon
+- "10 Sin Leer" with `Mail` icon
 
-- **Widget 3 — "Smart Mail"**: Compact metrics card showing email stats — "3 Urgentes" (highlighted) and "10 Sin Leer" with minimal iconography.
+**Delete: NotasRapidas.tsx** -- removed from the right column
 
-## Scope & Notes
-- Fully static/frontend-only — all data is mock/hardcoded
-- Single-page dashboard, no routing needed beyond the index
-- Responsive considerations for the 3-column layout
-- All interactions (button clicks, input) will have visual feedback but no backend logic
+**Index.tsx**: Update imports and right column to render 5 cards in order: MisionActual, SmartCalendarGrid, CriticalPath, EnEspera, SmartMail
 
+## Technical Details
+
+Files modified:
+- `src/pages/Index.tsx` -- title, subtitle removal, widget imports/layout
+- `src/components/dashboard/BlackHoleInput.tsx` -- placeholder text
+- `src/components/dashboard/MisionActual.tsx` -- header label change
+- `src/components/dashboard/SmartCalendarGrid.tsx` -- full rewrite to floating timeline
+
+Files created:
+- `src/components/dashboard/CriticalPath.tsx`
+- `src/components/dashboard/SmartMail.tsx`
+
+Files deleted:
+- `src/components/dashboard/NotasRapidas.tsx`
