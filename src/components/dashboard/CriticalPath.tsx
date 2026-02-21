@@ -8,7 +8,7 @@ const items = [
 
 const CriticalPath = () => {
   return (
-    <div className="glass-float rounded-2xl p-5 ring-1 ring-amber-400/20 shadow-[0_0_24px_hsl(38_90%_50%/0.08)]">
+    <div className="glass-float rounded-3xl p-5 ring-1 ring-amber-400/20 shadow-[0_0_32px_hsl(38_90%_50%/0.08)]">
       <div className="flex items-center gap-2 mb-4">
         <AlertTriangle size={16} className="text-amber-500" />
         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">

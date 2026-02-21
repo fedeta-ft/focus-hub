@@ -8,7 +8,7 @@ const waitingItems = [
 
 const EnEspera = () => {
   return (
-    <div className="glass-float rounded-2xl p-5">
+    <div className="glass-float rounded-3xl p-5">
       <div className="flex items-center gap-2 mb-4">
         <Clock size={16} className="text-primary" />
         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
