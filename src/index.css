@@ -6,50 +6,49 @@
 
 @layer base {
   :root {
-    --background: 240 15% 4%;
-    --foreground: 0 0% 93%;
+    --background: 230 60% 96%;
+    --foreground: 222 47% 20%;
 
-    --card: 240 12% 8%;
-    --card-foreground: 0 0% 93%;
+    --card: 0 0% 100% / 0.45;
+    --card-foreground: 222 47% 20%;
 
-    --popover: 240 12% 8%;
-    --popover-foreground: 0 0% 93%;
+    --popover: 0 0% 100% / 0.55;
+    --popover-foreground: 222 47% 20%;
 
-    --primary: 20 100% 58%;
+    --primary: 250 80% 62%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 12%;
-    --secondary-foreground: 0 0% 85%;
+    --secondary: 220 40% 94%;
+    --secondary-foreground: 222 47% 30%;
 
-    --muted: 240 8% 14%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 220 20% 90%;
+    --muted-foreground: 222 15% 50%;
 
-    --accent: 20 100% 58%;
+    --accent: 250 80% 62%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100% / 0.08;
-    --input: 0 0% 100% / 0.08;
-    --ring: 20 100% 58%;
+    --border: 220 30% 80% / 0.5;
+    --input: 220 30% 80% / 0.4;
+    --ring: 250 80% 62%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --sidebar-background: 240 12% 6%;
-    --sidebar-foreground: 0 0% 80%;
-    --sidebar-primary: 20 100% 58%;
+    --sidebar-background: 0 0% 100% / 0.3;
+    --sidebar-foreground: 222 30% 35%;
+    --sidebar-primary: 250 80% 62%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 100% / 0.06;
-    --sidebar-accent-foreground: 0 0% 93%;
-    --sidebar-border: 0 0% 100% / 0.06;
-    --sidebar-ring: 20 100% 58%;
+    --sidebar-accent: 250 80% 62% / 0.1;
+    --sidebar-accent-foreground: 250 80% 50%;
+    --sidebar-border: 0 0% 100% / 0.4;
+    --sidebar-ring: 250 80% 62%;
 
-    --glass: 240 12% 8% / 0.6;
-    --glass-border: 0 0% 100% / 0.1;
-    --glass-hover: 0 0% 100% / 0.04;
-    --neon-orange: 20 100% 58%;
-    --neon-glow: 20 100% 58% / 0.4;
+    --vision-glow: 250 80% 62% / 0.15;
+    --vision-glass: 0 0% 100% / 0.35;
+    --vision-glass-border: 0 0% 100% / 0.5;
+    --vision-glass-hover: 0 0% 100% / 0.5;
   }
 }
 
@@ -59,35 +58,59 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, 
+      hsl(240 70% 85%) 0%, 
+      hsl(260 60% 80%) 20%, 
+      hsl(220 70% 88%) 40%, 
+      hsl(280 50% 82%) 60%, 
+      hsl(200 60% 86%) 80%, 
+      hsl(250 55% 84%) 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 }
 
 @layer utilities {
   .glass {
-    background: hsl(var(--glass));
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid hsl(var(--glass-border));
+    background: hsl(var(--vision-glass));
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 1px solid hsl(var(--vision-glass-border));
+    box-shadow: 
+      0 8px 32px hsl(250 60% 50% / 0.08),
+      0 2px 8px hsl(0 0% 0% / 0.04),
+      inset 0 1px 0 hsl(0 0% 100% / 0.6);
   }
 
   .glass-subtle {
-    background: hsl(240 12% 8% / 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--glass-border));
+    background: hsl(0 0% 100% / 0.25);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border: 1px solid hsl(0 0% 100% / 0.35);
+    box-shadow: 
+      0 4px 16px hsl(250 60% 50% / 0.06),
+      inset 0 1px 0 hsl(0 0% 100% / 0.4);
   }
 
-  .neon-glow {
-    box-shadow: 0 0 20px hsl(var(--neon-glow)), 0 0 40px hsl(20 100% 58% / 0.15);
+  .glass-float {
+    background: hsl(0 0% 100% / 0.5);
+    backdrop-filter: blur(48px) saturate(2);
+    -webkit-backdrop-filter: blur(48px) saturate(2);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    box-shadow: 
+      0 12px 40px hsl(250 60% 50% / 0.12),
+      0 4px 12px hsl(0 0% 0% / 0.06),
+      inset 0 1px 0 hsl(0 0% 100% / 0.7);
   }
 
-  .neon-glow-sm {
-    box-shadow: 0 0 10px hsl(var(--neon-glow));
+  .vision-glow {
+    box-shadow: 0 8px 32px hsl(var(--vision-glow)), 0 0 60px hsl(250 80% 62% / 0.08);
   }
 
-  .text-glow {
-    text-shadow: 0 0 20px hsl(var(--neon-glow));
+  .vision-glow-sm {
+    box-shadow: 0 4px 16px hsl(var(--vision-glow));
   }
 }

@@ -21,9 +21,9 @@ const messages = [
 
 const JarvisChat = () => {
   return (
-    <div className="flex-1 flex flex-col gap-4 overflow-y-auto pr-1 scrollbar-thin">
+    <div className="flex-1 flex flex-col gap-4 overflow-y-auto pr-1">
       <div className="flex items-center gap-2 mb-2">
-        <div className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
           <Bot size={14} className="text-primary" />
         </div>
         <span className="text-xs font-medium text-primary/80 tracking-wide uppercase">
@@ -44,14 +44,14 @@ const JarvisChat = () => {
           <div
             className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
               msg.role === "user"
-                ? "bg-secondary/80 text-foreground rounded-br-md"
-                : "glass-subtle text-secondary-foreground rounded-bl-md"
+                ? "glass-subtle text-foreground rounded-br-md"
+                : "glass-float text-foreground rounded-bl-md"
             }`}
           >
             {msg.text}
           </div>
           {msg.role === "user" && (
-            <div className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-1">
+            <div className="w-7 h-7 rounded-full bg-primary/5 flex items-center justify-center shrink-0 mt-1">
               <User size={14} className="text-muted-foreground" />
             </div>
           )}

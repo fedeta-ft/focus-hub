@@ -2,12 +2,13 @@ import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import BlackHoleInput from "@/components/dashboard/BlackHoleInput";
 import JarvisChat from "@/components/dashboard/JarvisChat";
 import MisionActual from "@/components/dashboard/MisionActual";
-import SmartAgenda from "@/components/dashboard/SmartAgenda";
-import SmartMail from "@/components/dashboard/SmartMail";
+import SmartCalendarGrid from "@/components/dashboard/SmartCalendarGrid";
+import EnEspera from "@/components/dashboard/EnEspera";
+import NotasRapidas from "@/components/dashboard/NotasRapidas";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen flex">
       <DashboardSidebar />
 
       {/* Main content area — offset for sidebar */}
@@ -26,10 +27,11 @@ const Index = () => {
         </main>
 
         {/* Right Column */}
-        <aside className="w-[340px] shrink-0 p-6 pl-0 flex flex-col gap-4">
+        <aside className="w-[360px] shrink-0 p-6 pl-0 flex flex-col gap-4 overflow-y-auto max-h-screen">
           <MisionActual />
-          <SmartAgenda />
-          <SmartMail />
+          <SmartCalendarGrid />
+          <EnEspera />
+          <NotasRapidas />
         </aside>
       </div>
     </div>
