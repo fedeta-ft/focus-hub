@@ -2,9 +2,10 @@ import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import BlackHoleInput from "@/components/dashboard/BlackHoleInput";
 import JarvisChat from "@/components/dashboard/JarvisChat";
 import MisionActual from "@/components/dashboard/MisionActual";
+import UpNext from "@/components/dashboard/UpNext";
 import SmartCalendarGrid from "@/components/dashboard/SmartCalendarGrid";
-import EnEspera from "@/components/dashboard/EnEspera";
 import CriticalPath from "@/components/dashboard/CriticalPath";
+import EnEspera from "@/components/dashboard/EnEspera";
 import SmartMail from "@/components/dashboard/SmartMail";
 
 const Index = () => {
@@ -29,6 +30,7 @@ const Index = () => {
         {/* Right Column */}
         <aside className="w-[360px] shrink-0 p-6 pl-0 flex flex-col gap-4 overflow-y-auto max-h-screen">
           <MisionActual />
+          <UpNext />
           <SmartCalendarGrid />
           <CriticalPath />
           <EnEspera />
