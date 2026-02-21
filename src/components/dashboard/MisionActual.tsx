@@ -36,7 +36,7 @@ const MisionActual = () => {
       <div className="flex items-center gap-2 mb-4">
         <Target size={16} className="text-primary" />
         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
-          Misión Actual + Timebox
+          Current Task + Timebox
         </h3>
       </div>
 

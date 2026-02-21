@@ -4,7 +4,8 @@ import JarvisChat from "@/components/dashboard/JarvisChat";
 import MisionActual from "@/components/dashboard/MisionActual";
 import SmartCalendarGrid from "@/components/dashboard/SmartCalendarGrid";
 import EnEspera from "@/components/dashboard/EnEspera";
-import NotasRapidas from "@/components/dashboard/NotasRapidas";
+import CriticalPath from "@/components/dashboard/CriticalPath";
+import SmartMail from "@/components/dashboard/SmartMail";
 
 const Index = () => {
   return (
@@ -17,9 +18,8 @@ const Index = () => {
         <main className="flex-1 flex flex-col p-6 gap-5 max-w-3xl">
           <header className="mb-2">
             <h1 className="text-xl font-semibold text-foreground tracking-tight">
-              El Agujero Negro
+              Dashboard
             </h1>
-            <p className="text-xs text-muted-foreground mt-1">Brain dump. J.A.R.V.I.S. se encarga del resto.</p>
           </header>
 
           <BlackHoleInput />
@@ -30,8 +30,9 @@ const Index = () => {
         <aside className="w-[360px] shrink-0 p-6 pl-0 flex flex-col gap-4 overflow-y-auto max-h-screen">
           <MisionActual />
           <SmartCalendarGrid />
+          <CriticalPath />
           <EnEspera />
-          <NotasRapidas />
+          <SmartMail />
         </aside>
       </div>
     </div>
