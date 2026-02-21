@@ -1,9 +1,9 @@
-import { Target, Check, Timer, Pencil } from "lucide-react";
+import { Target, Check, Timer, Pencil, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const MisionActual = () => {
   const [completed, setCompleted] = useState(false);
-  const [totalSeconds, setTotalSeconds] = useState(45 * 60); // 45 min
+  const [totalSeconds, setTotalSeconds] = useState(45 * 60);
   const [isRunning, setIsRunning] = useState(true);
   const [editing, setEditing] = useState(false);
   const [editMin, setEditMin] = useState("45");
@@ -29,10 +29,10 @@ const MisionActual = () => {
     setEditing(false);
   };
 
-  const urgency = totalSeconds < 600; // < 10 min
+  const urgency = totalSeconds < 600;
 
   return (
-    <div className="glass-float rounded-2xl p-5">
+    <div className="glass-float rounded-3xl p-5">
       <div className="flex items-center gap-2 mb-4">
         <Target size={16} className="text-primary" />
         <h3 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
@@ -57,11 +57,11 @@ const MisionActual = () => {
             type="number"
             value={editMin}
             onChange={(e) => setEditMin(e.target.value)}
-            className="w-20 h-9 rounded-lg glass-subtle text-center text-sm text-foreground outline-none focus:ring-1 focus:ring-primary"
+            className="w-20 h-9 rounded-xl glass-subtle text-center text-sm text-foreground outline-none focus:ring-1 focus:ring-primary"
             min={1}
           />
           <span className="text-xs text-muted-foreground">min</span>
-          <button onClick={handleEditSave} className="h-9 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-medium">
+          <button onClick={handleEditSave} className="h-9 px-3 rounded-xl bg-primary text-primary-foreground text-xs font-medium">
             OK
           </button>
         </div>
@@ -70,7 +70,7 @@ const MisionActual = () => {
       <div className="flex gap-3">
         <button
           onClick={() => setCompleted(!completed)}
-          className={`flex-1 h-11 rounded-xl font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
+          className={`flex-1 h-11 rounded-2xl font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
             completed
               ? "glass-subtle text-primary"
               : "bg-primary text-primary-foreground vision-glow hover:scale-[1.02]"
@@ -81,10 +81,15 @@ const MisionActual = () => {
         </button>
         <button
           onClick={() => { setEditing(!editing); setIsRunning(!isRunning); }}
-          className="h-11 px-4 rounded-xl glass-subtle text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+          className="h-11 px-4 rounded-2xl glass-subtle text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
         >
           {editing ? <Timer size={14} /> : <Pencil size={14} />}
-          {editing ? "Timer" : "Editar Tiempo"}
+        </button>
+        <button
+          className="h-11 px-4 rounded-2xl glass-subtle text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+        >
+          <ChevronRight size={14} />
+          <span className="text-xs">Siguiente</span>
         </button>
       </div>
     </div>
